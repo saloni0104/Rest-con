@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
 
+
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
+
     <link href="css/styles.css" rel="stylesheet">
 
 
@@ -42,7 +45,8 @@
                 </ul>
 
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <!--<a data-toggle="modal" data-target="#loginModal">-->
+                    <a id="loginButton">
                         <span class="fa fa-sign-in"></span>Login
                     </a>
                 </span>
@@ -104,7 +108,9 @@
                 </div>
 
                 <div class="col-12 col-sm align-self-center btn-group" role="group">
-                    <a href="#Reserve" role="button" class="btn btn-warning text-white" data-toggle="modal" data-target="#reserveModal"> Reserve Table</a>
+                    <a href="#Reserve" role="button" class="btn btn-warning text-white" id="reserveButton"> Reserve
+                        Table</a>
+                    <!--data-toggle="modal" data-target="#reserveModal"-->
 
                     <!--Tooltip-->
                     <!-- data-toggle="tooltip" data-html="true" title="Or Call us at +852 12345678" data-placement="bottom"-->
@@ -147,13 +153,15 @@
 
                                     <div class="form-group row">
                                         <label for="section" class="col-11 col-lg-2 col-form-label  ">Section</label>
-                                        <div class=" col-12 col-md-4 btn-group" role="group" >
-                                            <span type="radio" role="button" class="btn btn-success text-white active" data-toggle="buttons"> NonSmoking</span>
-                                             <span type="button" role="button" class="btn btn-danger text-white" data-toggle="buttons" >Smoking</span>
+                                        <div class=" col-12 col-md-4 btn-group" role="group">
+                                            <span type="radio" role="button" class="btn btn-success text-white active"
+                                                data-toggle="buttons"> NonSmoking</span>
+                                            <span type="button" role="button" class="btn btn-danger text-white"
+                                                data-toggle="buttons">Smoking</span>
                                         </div>
                                     </div>
-    
-    
+
+
                                     <div class="form-group row">
                                         <label for="datetime" class="col-11 col-lg-2 col-form-label  ">Date and
                                             Time</label>
@@ -166,16 +174,18 @@
                                                 placeholder="Time">
                                         </div>
                                     </div>
-    
+
                                     <div class="form-group row">
                                         <div class="col-12 col-md-2 offset-md-2">
-                                            <div class="btn-group" role="group" >
-                                                <a role="button" class="btn btn-secondary text-white" id="Reserve">Cancel</a>
+                                            <div class="btn-group" role="group">
+                                                <a role="button" class="btn btn-secondary text-white"
+                                                    id="Reserve">Cancel</a>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-2">
-                                            <div class="btn-group" role="group" >
-                                                <a role="button" class="btn btn-primary text-white" id="Reserve">Reserve</a>
+                                            <div class="btn-group" role="group">
+                                                <a role="button" class="btn btn-primary text-white"
+                                                    id="Reserve">Reserve</a>
                                             </div>
                                         </div>
                                     </div>
@@ -211,12 +221,13 @@
                             <div class="carousel-caption d-none d-md-block">
                                 <h2 class="mt-0">Weekend Grand Buffet <span class="badge badge-danger">NEW</span></h2>
                                 <p class="d-none d-sm-block">Featuring mouthwatering combinations with a choice of five
-                                different salads, six enticing
-                                appetizers,
-                                six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for
-                                just
-                                $19.99 per person 
-                            </p>
+                                    different salads, six enticing
+                                    appetizers,
+                                    six main entrees and five choicest desserts. Free flowing bubbly and soft drinks.
+                                    All for
+                                    just
+                                    $19.99 per person
+                                </p>
                             </div>
 
                         </div>
@@ -224,11 +235,13 @@
                             <img class="d-block img-fluid" src="img/alberto.png" alt="buffet">
                             <div class="carousel-caption d-none d-md-block">
                                 <h2 class="mt-0">Alberto Somayya</h2>
-                        <h4>Executive Chef</h4>
-                        <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide International
-                            experience having worked closely with
-                            whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion
-                            experiences. </p>
+                                <h4>Executive Chef</h4>
+                                <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide
+                                    International
+                                    experience having worked closely with
+                                    whos-who in the culinary world, he specializes in creating mouthwatering
+                                    Indo-Italian fusion
+                                    experiences. </p>
                             </div>
                         </div>
                     </div>
@@ -246,9 +259,9 @@
                     </a>
 
                     <!--Single button:pause and play-->
-                        <button class="btn btn-danger btn-sm" id="carouselButton">
-                            <span id="carousel-button-icon" class="fa fa-pause"></span>
-                        </button>
+                    <button class="btn btn-danger btn-sm" id="carouselButton">
+                        <span id="carousel-button-icon" class="fa fa-pause"></span>
+                    </button>
 
 
                     <!--Two buttons:pause and play-->
@@ -328,7 +341,7 @@
         </div>
 
         <!--Reservation Table-->
-<!----
+        <!----
         <div class="row row-content align-items-center">
             <div class="col-12 col-md-8 offset-md-2">
                 <div class="card">
@@ -459,19 +472,26 @@
     <!--Single button:pause and play-->
 
     <script>
-        $(document).ready(function(){
-            $('#mycarousel').carousel({interval:2000});
-            $("#carouselButton").click(function(){
+        $(document).ready(function () {
+            $('#mycarousel').carousel({ interval: 2000 });
+            $("#carouselButton").click(function () {
                 if ($("#carouselButton").children("span").hasClass('fa-pause')) {
                     $("#mycarousel").carousel('pause');
                     $("#carouselButton").children("span").removeClass('fa-pause');
                     $("#carouselButton").children("span").addClass('fa-play');
                 }
-                else if ($("#carouselButton").children("span").hasClass('fa-play')){
+                else if ($("#carouselButton").children("span").hasClass('fa-play')) {
                     $("#mycarousel").carousel('cycle');
                     $("#carouselButton").children("span").removeClass('fa-play');
-                    $("#carouselButton").children("span").addClass('fa-pause');                    
+                    $("#carouselButton").children("span").addClass('fa-pause');
                 }
+            });
+            $("#loginButton").click(function () {
+                $("#loginModal").modal('show');
+            });
+
+            $("#reserveButton").click(function () {
+                $("#reserveModal").modal('show');
             });
         });
     </script>
